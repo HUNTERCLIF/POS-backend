@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if action == 'Create' %}Create Product{% else %}Update Product{% endif %}</title>
+</head>
+<body>
+    <h2>{% if action == 'Create' %}Create Product{% else %}Update Product{% endif %}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if action == 'Create' %}Create{% else %}Update{% endif %}</button>
+    </form>
+</body>
+</html>
